@@ -1,0 +1,18 @@
+query CartPaymentMethodsTransformRunInput {
+  paymentMethods {
+    id
+    name
+  }
+  cart {
+    lines {
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          product {
+            hasAnyTag(tags: ["free-gift", "Free Gift", "free gift", "Free-Gift"])
+          }
+        }
+      }
+    }
+  }
+}

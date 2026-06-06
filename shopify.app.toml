@@ -1,0 +1,31 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "8fded8bcdc229260a6362b0b7f6618ab"
+name = "custom-cod-app"
+application_url = "https://custom-freebie-blue-glitter-8766.fly.dev"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2026-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,read_payment_customizations,write_payment_customizations"
+
+[auth]
+redirect_urls = [
+  "https://custom-freebie-blue-glitter-8766.fly.dev/auth/callback",
+  "https://custom-freebie-blue-glitter-8766.fly.dev/auth/shopify/callback",
+  "https://custom-freebie-blue-glitter-8766.fly.dev/api/auth/callback"
+]
